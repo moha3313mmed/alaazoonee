@@ -1,0 +1,344 @@
+// مخطط Prisma — النظام المحاسبي (الخليلي والعزوني للزجاج والإكسسوارات والتركيب)
+//
+// يُعرّف هذا الملف الاتصال بقاعدة بيانات PostgreSQL، ومولّد عميل Prisma، والمخطط الكامل
+// لنماذج البيانات (المهمة 1.3): المستخدمون، العملاء، الموردون، عروض الأسعار وبنودها،
+// الفواتير وبنودها، المدفوعات، المصروفات، المخزون وحركاته، مهام التركيب والفنيون، وسجل المساعد.
+//
+// ملاحظة بشأن الدقة المالية:
+//   تُخزَّن القيم المالية والكميات كنوع Decimal (NUMERIC في PostgreSQL) وتُمثَّل في الشيفرة
+//   عبر Prisma.Decimal (المبني على decimal.js) لتفادي أخطاء الفاصلة العائمة.
+//   (المتطلبات 9.2, 12.4)
+//
+// ملاحظة بشأن القيم المعدودة (Enums):
+//   يفرض Prisma أن تكون أسماء أعضاء enum بأحرف لاتينية، لذا نستخدم أسماء إنجليزية واضحة
+//   ونربطها عبر @map بالقيم العربية المعتمدة في وثيقة التصميم لتُخزَّن في قاعدة البيانات بالعربية.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  // يُقرأ رابط الاتصال من متغيّر البيئة DATABASE_URL (انظر ملف .env / .env.example)
+  url      = env("DATABASE_URL")
+}
+
+// ===================== القيم المعدودة (Enums) =====================
+
+/// أدوار المستخدمين (المتطلب 1.4)
+enum Role {
+  ADMIN      @map("مدير")
+  ACCOUNTANT @map("محاسب")
+  TECHNICIAN @map("فني")
+}
+
+/// حالة عرض السعر
+enum QuoteStatus {
+  DRAFT     @map("مسودة")
+  APPROVED  @map("معتمد")
+  CONVERTED @map("محوّل")
+  CANCELLED @map("ملغى")
+}
+
+/// نوع تسعير البند: بالقياس (متر مربع) أو بالقطعة (المتطلبات 4.1, 4.6)
+enum LineItemKind {
+  BY_MEASURE @map("بالقياس")
+  BY_PIECE   @map("بالقطعة")
+}
+
+/// حالة الفاتورة (المتطلبات 5.4, 5.5)
+enum InvoiceStatus {
+  UNPAID         @map("غير مدفوعة")
+  PARTIALLY_PAID @map("مدفوعة جزئياً")
+  PAID           @map("مدفوعة بالكامل")
+}
+
+/// وحدة قياس صنف المخزون (المتطلب 7.6)
+enum UnitKind {
+  SQUARE_METER @map("متر مربع")
+  PIECE        @map("قطعة")
+}
+
+/// نوع حركة المخزون (المتطلبات 7.2, 7.3)
+enum StockMovementType {
+  SALE       @map("بيع")
+  PURCHASE   @map("شراء")
+  ADJUSTMENT @map("تعديل")
+}
+
+/// حالة مهمة التركيب (المتطلبات 8.1, 8.3)
+enum JobStatus {
+  SCHEDULED   @map("مجدولة")
+  IN_PROGRESS @map("قيد التنفيذ")
+  COMPLETED   @map("مكتملة")
+  CANCELLED   @map("ملغاة")
+}
+
+// ===================== المصادقة والصلاحيات =====================
+
+/// مستخدم النظام (المتطلب 1)
+model User {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  role         Role
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+
+  technician    Technician?
+  assistantLogs AssistantLog[]
+
+  @@map("users")
+}
+
+// ===================== العملاء والموردون =====================
+
+/// العميل ورصيده (المتطلب 2)
+model Customer {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  balance   Decimal  @default(0) @db.Decimal(14, 3)
+  createdAt DateTime @default(now())
+
+  quotes          Quote[]
+  invoices        Invoice[]
+  installationJobs InstallationJob[]
+
+  @@index([name])
+  @@index([phone])
+  @@map("customers")
+}
+
+/// المورد ورصيده (المتطلب 3)
+model Supplier {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  balance   Decimal  @default(0) @db.Decimal(14, 3)
+  createdAt DateTime @default(now())
+
+  expenses Expense[]
+
+  @@index([name])
+  @@index([phone])
+  @@map("suppliers")
+}
+
+// ===================== عروض الأسعار =====================
+
+/// عرض السعر (المتطلب 4)
+model Quote {
+  id          String      @id @default(cuid())
+  customerId  String
+  discountPct Decimal     @default(0) @db.Decimal(5, 2)
+  taxPct      Decimal     @default(0) @db.Decimal(5, 2)
+  status      QuoteStatus @default(DRAFT)
+  createdAt   DateTime    @default(now())
+
+  customer Customer    @relation(fields: [customerId], references: [id])
+  items    QuoteItem[]
+  invoice  Invoice?
+
+  @@index([customerId])
+  @@map("quotes")
+}
+
+/// بند عرض السعر — بالقياس أو بالقطعة (المتطلبات 4.1, 4.6)
+model QuoteItem {
+  id              String       @id @default(cuid())
+  quoteId         String
+  kind            LineItemKind
+  description     String
+  // للبنود بالقياس
+  widthM          Decimal?     @db.Decimal(14, 4)
+  heightM         Decimal?     @db.Decimal(14, 4)
+  pricePerSqm     Decimal?     @db.Decimal(14, 3)
+  // للبنود بالقطعة
+  quantity        Decimal?     @db.Decimal(14, 4)
+  unitPrice       Decimal?     @db.Decimal(14, 3)
+  inventoryItemId String?
+  lineTotal       Decimal      @db.Decimal(14, 3)
+
+  quote         Quote          @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  inventoryItem InventoryItem? @relation(fields: [inventoryItemId], references: [id])
+
+  @@index([quoteId])
+  @@index([inventoryItemId])
+  @@map("quote_items")
+}
+
+// ===================== الفواتير والمدفوعات =====================
+
+/// الفاتورة (المتطلب 5)
+model Invoice {
+  id              String        @id @default(cuid())
+  number          String        @unique
+  customerId      String
+  quoteId         String?       @unique
+  issueDate       DateTime      @default(now())
+  subtotal        Decimal       @db.Decimal(14, 3)
+  discountPct     Decimal       @default(0) @db.Decimal(5, 2)
+  taxPct          Decimal       @default(0) @db.Decimal(5, 2)
+  netTotal        Decimal       @db.Decimal(14, 3)
+  paidAmount      Decimal       @default(0) @db.Decimal(14, 3)
+  remainingAmount Decimal       @db.Decimal(14, 3)
+  status          InvoiceStatus @default(UNPAID)
+
+  customer         Customer          @relation(fields: [customerId], references: [id])
+  quote            Quote?            @relation(fields: [quoteId], references: [id])
+  items            InvoiceItem[]
+  payments         Payment[]
+  installationJobs InstallationJob[]
+
+  @@index([customerId])
+  @@map("invoices")
+}
+
+/// بند الفاتورة — نفس بنية بند عرض السعر
+model InvoiceItem {
+  id              String       @id @default(cuid())
+  invoiceId       String
+  kind            LineItemKind
+  description     String
+  widthM          Decimal?     @db.Decimal(14, 4)
+  heightM         Decimal?     @db.Decimal(14, 4)
+  pricePerSqm     Decimal?     @db.Decimal(14, 3)
+  quantity        Decimal?     @db.Decimal(14, 4)
+  unitPrice       Decimal?     @db.Decimal(14, 3)
+  inventoryItemId String?
+  lineTotal       Decimal      @db.Decimal(14, 3)
+
+  invoice       Invoice        @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  inventoryItem InventoryItem? @relation(fields: [inventoryItemId], references: [id])
+
+  @@index([invoiceId])
+  @@index([inventoryItemId])
+  @@map("invoice_items")
+}
+
+/// دفعة على فاتورة (المتطلب 5.3)
+model Payment {
+  id        String   @id @default(cuid())
+  invoiceId String
+  amount    Decimal  @db.Decimal(14, 3)
+  date      DateTime @default(now())
+
+  invoice Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+
+  @@index([invoiceId])
+  @@map("payments")
+}
+
+// ===================== المصروفات =====================
+
+/// مصروف (المتطلب 6)
+model Expense {
+  id         String   @id @default(cuid())
+  amount     Decimal  @db.Decimal(14, 3)
+  date       DateTime @default(now())
+  category   String
+  supplierId String?
+
+  supplier Supplier? @relation(fields: [supplierId], references: [id])
+
+  @@index([supplierId])
+  @@index([date])
+  @@map("expenses")
+}
+
+// ===================== المخزون =====================
+
+/// صنف مخزون (المتطلب 7)
+model InventoryItem {
+  id           String   @id @default(cuid())
+  name         String
+  unit         UnitKind
+  quantity     Decimal  @db.Decimal(14, 4)
+  reorderLevel Decimal  @db.Decimal(14, 4)
+
+  stockMovements StockMovement[]
+  quoteItems     QuoteItem[]
+  invoiceItems   InvoiceItem[]
+
+  @@index([name])
+  @@map("inventory_items")
+}
+
+/// حركة مخزون: بيع/شراء/تعديل (المتطلبات 7.2, 7.3)
+model StockMovement {
+  id       String            @id @default(cuid())
+  itemId   String
+  type     StockMovementType
+  quantity Decimal           @db.Decimal(14, 4)
+  refType  String?
+  refId    String?
+  date     DateTime          @default(now())
+
+  item InventoryItem @relation(fields: [itemId], references: [id])
+
+  @@index([itemId])
+  @@map("stock_movements")
+}
+
+// ===================== التركيب والفنيون =====================
+
+/// مهمة تركيب (المتطلب 8)
+model InstallationJob {
+  id          String    @id @default(cuid())
+  customerId  String?
+  invoiceId   String?
+  status      JobStatus @default(SCHEDULED)
+  scheduledAt DateTime?
+  createdAt   DateTime  @default(now())
+
+  customer    Customer?       @relation(fields: [customerId], references: [id])
+  invoice     Invoice?        @relation(fields: [invoiceId], references: [id])
+  technicians JobTechnician[]
+
+  @@index([customerId])
+  @@index([invoiceId])
+  @@map("installation_jobs")
+}
+
+/// الفني — مرتبط اختيارياً بمستخدم بدور "فني"
+model Technician {
+  id     String  @id @default(cuid())
+  name   String
+  userId String? @unique
+
+  user User?           @relation(fields: [userId], references: [id])
+  jobs JobTechnician[]
+
+  @@map("technicians")
+}
+
+/// علاقة متعدّد لمتعدّد بين مهام التركيب والفنيين (المتطلب 8.2)
+model JobTechnician {
+  jobId        String
+  technicianId String
+
+  job        InstallationJob @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  technician Technician      @relation(fields: [technicianId], references: [id], onDelete: Cascade)
+
+  @@id([jobId, technicianId])
+  @@index([technicianId])
+  @@map("job_technicians")
+}
+
+// ===================== المساعد الذكي =====================
+
+/// سجل تفاعلات المساعد الذكي (المتطلبات 10, 11)
+model AssistantLog {
+  id             String   @id @default(cuid())
+  userId         String
+  message        String
+  resolvedIntent String?
+  executedToolId String?
+  createdAt      DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@map("assistant_logs")
+}

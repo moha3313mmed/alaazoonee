@@ -1,0 +1,497 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 تهيئة مشروع Next.js مع TypeScript و Tailwind و RTL": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311814
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501318867
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501600233
+      }
+    ],
+    "1.2 تهيئة Prisma والاتصال بقاعدة بيانات PostgreSQL": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311818
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501603215
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501743943
+      }
+    ],
+    "1.3 تعريف مخطط البيانات الكامل في Prisma": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311821
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501746746
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502034193
+      }
+    ],
+    "2.1 تنفيذ خدمة المصادقة وإدارة الجلسات": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311832
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502042057
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502443004
+      }
+    ],
+    "2.2 تنفيذ مصفوفة الصلاحيات وحارس الأدوار": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311835
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502448190
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502450887
+      }
+    ],
+    "3.1 تنفيذ خدمة العملاء (CustomerService)": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311838
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502042577
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502443816
+      }
+    ],
+    "3.2 تنفيذ خدمة الموردين (SupplierService)": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311844
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502043115
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502444003
+      }
+    ],
+    "4.1 تنفيذ خدمة المخزون (InventoryService)": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311847
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502043509
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502444414
+      }
+    ],
+    "5.1 تنفيذ احتساب البنود والتسعير": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311851
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502459512
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502766117
+      }
+    ],
+    "5.2 تنفيذ إنشاء عرض السعر وتحويله إلى فاتورة": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311854
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502766992
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502770030
+      }
+    ],
+    "6. نقطة تحقّق — التأكد من نجاح الاختبارات": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311862
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502793081
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502795597
+      }
+    ],
+    "7.1 تنفيذ إنشاء واعتماد الفواتير": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311865
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502823709
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782503077090
+      }
+    ],
+    "7.2 تنفيذ تسجيل المدفوعات وتصنيف حالة الفاتورة": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311868
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782503086361
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782503090108
+      }
+    ],
+    "8.1 تنفيذ خدمة المصروفات (ExpenseService)": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311875
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502824721
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782503077896
+      }
+    ],
+    "9.1 تنفيذ خدمة التركيب (InstallationService)": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311878
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502825736
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782503078470
+      }
+    ],
+    "10.1 تنفيذ خدمة التقارير (ReportService)": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311881
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502826496
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782503079197
+      }
+    ],
+    "10.2 تنفيذ تصدير التقارير": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311884
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782503093122
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782503374936
+      }
+    ],
+    "11.1 إنشاء معالِجات المسارات (Route Handlers) لجميع الخدمات": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311887
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782503381122
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782504077382
+      }
+    ],
+    "12.1 تنفيذ بنية الأدوات (Tools) وربطها بطبقة الخدمات": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311891
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782504082041
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782504630741
+      }
+    ],
+    "12.2 تنفيذ الاستعلام عبر المحادثة": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311894
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782504631474
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782504636307
+      }
+    ],
+    "12.3 تنفيذ تنفيذ العمليات عبر المحادثة": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311897
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782504636390
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782504640039
+      }
+    ],
+    "13.1 بناء شاشات الواجهة الرئيسية بربطها بطبقة الـ API": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311900
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782504652802
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782505550772
+      }
+    ],
+    "13.2 تطبيق التصميم المتجاوب وعرض تنبيهات نقص المخزون": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311906
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782505551454
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782505554338
+      }
+    ],
+    "14. نقطة تحقّق نهائية — التأكد من نجاح جميع الاختبارات": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782501311909
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782505558809
+      },
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782505561920
+      }
+    ],
+    "1. تهيئة المشروع والبنية الأساسية": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502034204
+      }
+    ],
+    "3. خدمات العملاء والموردين": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502444006
+      }
+    ],
+    "4. خدمة المخزون وتنبيهات نقص المخزون": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502444417
+      }
+    ],
+    "2. طبقة المصادقة والصلاحيات (RBAC)": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502450891
+      }
+    ],
+    "5. خدمة الفوترة: عروض الأسعار والتسعير بالقياس": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782502770054
+      }
+    ],
+    "8. خدمة المصروفات": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782503077900
+      }
+    ],
+    "9. خدمة التركيب والفنيين": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782503078473
+      }
+    ],
+    "7. خدمة الفواتير وتحصيل المدفوعات": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782503090112
+      }
+    ],
+    "10. خدمة التقارير والتصدير": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782503374941
+      }
+    ],
+    "11. طبقة الـ API الموحّدة للخدمات": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782504077385
+      }
+    ],
+    "12. المساعد الذكي (الاستعلام والتنفيذ)": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782504640043
+      }
+    ],
+    "13. واجهة المستخدم المتجاوبة باللغة العربية وربط المكوّنات": [
+      {
+        "executionId": "8eacb516-2c3b-4f90-be68-84ca23a57958",
+        "chatSessionId": "f590c193-f817-40d9-9f89-b78a4d44e8e4",
+        "timestamp": 1782505554362
+      }
+    ]
+  }
+}
