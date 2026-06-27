@@ -24,6 +24,9 @@ import {
   isSupplierValidationError,
 } from "@/lib/services/supplierService";
 
+// تشغيل المسار ديناميكياً دائماً لأنه يقرأ جلسة المستخدم (headers) ويصل لقاعدة البيانات.
+export const dynamic = "force-dynamic";
+
 /** جسم تسجيل حركة على المورد. */
 interface TransactionBody {
   type?: unknown;

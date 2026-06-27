@@ -20,6 +20,9 @@ import {
   isSupplierValidationError,
 } from "@/lib/services/supplierService";
 
+// تشغيل المسار ديناميكياً دائماً لأنه يقرأ جلسة المستخدم (headers) ويصل لقاعدة البيانات.
+export const dynamic = "force-dynamic";
+
 /** GET /api/suppliers — البحث عن الموردين. */
 export const GET = withApi("suppliers:read", async ({ request }) => {
   const query = new URL(request.url).searchParams.get("q") ?? "";

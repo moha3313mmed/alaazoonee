@@ -11,6 +11,9 @@ import { withApi } from "@/lib/api/handler";
 import { fail, ok } from "@/lib/api/respond";
 import { CustomerService } from "@/lib/services/customerService";
 
+// تشغيل المسار ديناميكياً دائماً لأنه يقرأ جلسة المستخدم (headers) ويصل لقاعدة البيانات.
+export const dynamic = "force-dynamic";
+
 /** GET /api/customers/{id} — ملف العميل الكامل. */
 export const GET = withApi<{ id: string }>(
   "customers:read",

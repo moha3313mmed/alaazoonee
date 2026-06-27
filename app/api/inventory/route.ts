@@ -24,6 +24,9 @@ import {
 } from "@/lib/services/inventoryService";
 import { ReportService } from "@/lib/services/reportService";
 
+// تشغيل المسار ديناميكياً دائماً لأنه يقرأ جلسة المستخدم (headers) ويصل لقاعدة البيانات.
+export const dynamic = "force-dynamic";
+
 /** GET /api/inventory — الأصناف الحالية وتنبيهات نقص المخزون. */
 export const GET = withApi("inventory:read", async () => {
   const report = await ReportService.inventoryReport();

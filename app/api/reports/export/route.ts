@@ -23,6 +23,9 @@ import {
   type ReportData,
 } from "@/lib/services/reportExport";
 
+// تشغيل المسار ديناميكياً دائماً لأنه يقرأ جلسة المستخدم (headers) ويصل لقاعدة البيانات.
+export const dynamic = "force-dynamic";
+
 /** جسم طلب التصدير. */
 interface ExportBody {
   type?: unknown;

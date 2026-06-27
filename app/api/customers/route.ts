@@ -19,6 +19,9 @@ import {
 } from "@/lib/api/respond";
 import { CustomerService } from "@/lib/services/customerService";
 
+// تشغيل المسار ديناميكياً دائماً لأنه يقرأ جلسة المستخدم (headers) ويصل لقاعدة البيانات.
+export const dynamic = "force-dynamic";
+
 /** GET /api/customers — البحث عن العملاء (q فارغة تُعيد الجميع). */
 export const GET = withApi("customers:read", async ({ request }) => {
   const query = new URL(request.url).searchParams.get("q") ?? "";

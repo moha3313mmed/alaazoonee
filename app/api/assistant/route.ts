@@ -16,6 +16,9 @@ import { getApiSession } from "@/lib/api/session";
 import { fail, ok, parseJsonBody, toErrorResponse, INVALID_BODY_MESSAGE } from "@/lib/api/respond";
 import { assistantService, type ConversationState } from "@/lib/assistant";
 
+// تشغيل المسار ديناميكياً دائماً لأنه يقرأ جلسة المستخدم (headers) ويصل لقاعدة البيانات.
+export const dynamic = "force-dynamic";
+
 /** جسم طلب المساعد. */
 interface AssistantRequestBody {
   message?: unknown;

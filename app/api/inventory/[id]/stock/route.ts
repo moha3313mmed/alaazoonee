@@ -26,6 +26,9 @@ import {
   isInventoryError,
 } from "@/lib/services/inventoryService";
 
+// تشغيل المسار ديناميكياً دائماً لأنه يقرأ جلسة المستخدم (headers) ويصل لقاعدة البيانات.
+export const dynamic = "force-dynamic";
+
 /** جسم حركة المخزون. */
 interface StockBody {
   operation?: unknown;

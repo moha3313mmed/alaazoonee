@@ -22,6 +22,9 @@ import {
 } from "@/lib/api/respond";
 import { BillingService } from "@/lib/services/billingService";
 
+// تشغيل المسار ديناميكياً دائماً لأنه يقرأ جلسة المستخدم (headers) ويصل لقاعدة البيانات.
+export const dynamic = "force-dynamic";
+
 /** جسم إنشاء فاتورة مباشرة. */
 interface CreateInvoiceBody {
   customerId?: unknown;

@@ -8,6 +8,9 @@
 import NextAuth from "next-auth";
 import { authOptions } from "@/lib/auth/config";
 
+// تشغيل المسار ديناميكياً دائماً لأنه يقرأ جلسة المستخدم (headers) ويصل لقاعدة البيانات.
+export const dynamic = "force-dynamic";
+
 const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };

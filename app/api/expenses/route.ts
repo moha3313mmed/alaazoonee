@@ -23,6 +23,9 @@ import {
   isExpenseValidationError,
 } from "@/lib/services/expenseService";
 
+// تشغيل المسار ديناميكياً دائماً لأنه يقرأ جلسة المستخدم (headers) ويصل لقاعدة البيانات.
+export const dynamic = "force-dynamic";
+
 /** يحلّل قيمة تاريخ من نص الاستعلام، ويعيد null عند غيابها أو عدم صلاحيتها. */
 function parseDate(value: string | null): Date | null {
   if (!value) return null;

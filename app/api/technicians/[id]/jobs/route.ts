@@ -10,6 +10,9 @@ import { withApi } from "@/lib/api/handler";
 import { fail, ok } from "@/lib/api/respond";
 import { InstallationService } from "@/lib/services/installationService";
 
+// تشغيل المسار ديناميكياً دائماً لأنه يقرأ جلسة المستخدم (headers) ويصل لقاعدة البيانات.
+export const dynamic = "force-dynamic";
+
 /** GET /api/technicians/{id}/jobs — مهام الفني. */
 export const GET = withApi<{ id: string }>(
   "installation:read_assigned",

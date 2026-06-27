@@ -15,6 +15,9 @@ import { withApi } from "@/lib/api/handler";
 import { fail, ok, serviceErrorResponse } from "@/lib/api/respond";
 import { BillingService } from "@/lib/services/billingService";
 
+// تشغيل المسار ديناميكياً دائماً لأنه يقرأ جلسة المستخدم (headers) ويصل لقاعدة البيانات.
+export const dynamic = "force-dynamic";
+
 /** POST /api/quotes/{id}/convert — تحويل عرض السعر إلى فاتورة. */
 export const POST = withApi<{ id: string }>(
   "billing:write",
