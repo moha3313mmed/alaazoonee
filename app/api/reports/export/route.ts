@@ -88,7 +88,7 @@ export const POST = withApi("reports:read", async ({ request }) => {
 
   const file = await exportReport(reportData, format);
 
-  return new Response(file.content, {
+  return new Response(new Blob([file.content], { type: file.mimeType }), {
     status: 200,
     headers: {
       "Content-Type": file.mimeType,

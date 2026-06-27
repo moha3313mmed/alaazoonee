@@ -76,8 +76,8 @@ export default function InventoryPage() {
     },
   });
 
-  const items = inventoryQuery.data?.items ?? [];
-  const lowStock = inventoryQuery.data?.lowStock ?? [];
+  const items = useMemo(() => inventoryQuery.data?.items ?? [], [inventoryQuery.data]);
+  const lowStock = useMemo(() => inventoryQuery.data?.lowStock ?? [], [inventoryQuery.data]);
 
   // مجموعة معرّفات الأصناف منخفضة المخزون لتمييزها في الجدول.
   const lowStockIds = useMemo(
